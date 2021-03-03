@@ -1,0 +1,29 @@
+shadow-dom-example::part(message) {
+    background-color: aqua;
+}
+
+/* 要素名からCSSを効かせることができる */
+shadow-dom-example {
+    color: coral;
+    --css-variable: green;
+}
+
+/* 効かないCSS */
+shadow-dom-example div {
+    background-color: black;
+}
+
+div {
+    background-color: red;
+}
+
+/* importantしてもだめ */
+div {
+    background-color: red!important;
+}
+
+/* セレクタで選択してもだめ */
+div:nth-child(2) > p {
+    background-color: red;
+}
+

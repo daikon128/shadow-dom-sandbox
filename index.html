@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Simple DOM example</title>
+    <link href="assets/css/outer.css" rel="stylesheet">
+    <script>
+      customElements.define('shadow-dom-example', class extends HTMLElement {
+        connectedCallback() {
+          const shadow = this.attachShadow({mode: 'open'});
+          shadow.innerHTML =
+`
+<link href="assets/css/link-load.css" rel="stylesheet">
+
+<div part="message">
+  <p>
+    Hello, ${this.getAttribute('name')}
+  </p>
+</div>
+<div attr>
+attr css
+</div>
+<div class="css-variable">
+css variable
+</div>
+<span>span</span>`;
+        }
+      });
+    </script>
+  </head>
+  <body>
+    <div>outer div</div>
+    <p>--- Shadow DOM start ---</p>
+
+    <shadow-dom-example name="shadow dom example"></shadow-dom-example>
+
+    <br />
+    <p>--- Shadow DOM end ---</p>
+
+
+  </body>
+</html>

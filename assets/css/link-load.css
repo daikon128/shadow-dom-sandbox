@@ -1,0 +1,21 @@
+:host {
+    background-color: blueviolet;
+}
+/* shadow hostに属性をつけると効くCSSを設定できる */
+:host([attr]) {
+    background-color: black;
+}
+/* shadow host or shadow hostの親要素に指定の属性を設定してある場合に効く */
+/* が、chromeとEdgeくらいでしかサポートしていない*/
+:host-context([context-attr]) {
+    background-color: black;
+}
+
+.css-variable {
+    color: var(--css-variable, black);
+}
+
+/*こんな感じでも書ける*/
+/*div {*/
+/*    background-color: blueviolet;*/
+/*}*/
